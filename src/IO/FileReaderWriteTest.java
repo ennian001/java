@@ -2,10 +2,7 @@ package IO;
 
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  *  一、流的分类
@@ -104,4 +101,59 @@ public class FileReaderWriteTest {
             }
         }
       }
+    /**
+     * 从内存中写出数据到硬盘的文件里
+     * 说明:
+     * 1、输出操作，对应的FIle可以不存在的。
+     *   File对应硬盘中的文件如果不存在，输出过程中，会自动创建此文件。
+     *   如果存在，
+     *   FileWriter(file)/FileWrite(file.false)对原有文件覆盖,FileWriter(file,true)对原有文件基础上追加内容
+     */
+    @Test
+    public void testFIleWrite() throws IOException {
+        //1、提供File类的对象，指明写出到的文件
+        File file = new File("hello.txt");
+        //2、提供FIleWriter的对象。用于数据的写出
+        FileWriter fw = new FileWriter(file);
+//        在原有文件基础上追加
+//        FileWriter fw = new FileWriter(file,true);
+        //3、写出操作
+        fw.write("I HAVA A DREAM\n");
+        fw.write("you need have a dream too");
+        fw.close();
+    }
+    @Test
+    public void testCopy()  {
+        //1、c创建File对象，指明读入写出的文件
+        File srcFile = new File("hello.txt");
+        File destFile = new File("hello2.txt");
+        FileReader fr = null;  //创建输入流和输出对象
+        FileWriter fw = null;
+        try {
+            fr = new FileReader(srcFile);
+            fw = new FileWriter(destFile);
+            char[] cbur = new char[5];  //数据读入和写出的操作
+            int len; //记录每次读入到char[]数组中的个数
+            while ((len = fr.read(cbur))!=-1){
+                //每次写出len个字符
+                fw.write(cbur,0,len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            //关闭流
+            try {
+                if (fw!=null)
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (fr!=null)
+                fr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
