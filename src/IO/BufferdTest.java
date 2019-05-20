@@ -19,20 +19,18 @@ public class BufferdTest {
      */
     @Test
     public void BufferedStreamTest() {
-        //1、造文件
-        File srcFile =
-                new File("test.jpg");
-        File destFile =
-                new File("test2.jpg");
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
         try {
+            //1、造文件
+            File srcFile =
+                    new File("test.jpg");
+            File destFile =
+                    new File("test2.jpg");
             //2、造流
             //造节点流
-            fis = new FileInputStream(srcFile);
-            fos = new FileOutputStream(destFile);
+            FileInputStream  fis = new FileInputStream(srcFile);
+            FileOutputStream fos = new FileOutputStream(destFile);
             //3、造缓冲流
             bis = new BufferedInputStream(fis);
             bos = new BufferedOutputStream(fos);
