@@ -5,6 +5,9 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ *  笔试 题联系
+ */
 public class ExecForInterview {
     /**
      *  输入三个整数，排序
@@ -58,6 +61,7 @@ public class ExecForInterview {
         System.out.println("字母的个数为：　" + zimu);
         System.out.println("空格的数目为：　" + kongge);
     }
+
     @Test
     public void printTest3(){
        test3("I am a student whose age is 20");
