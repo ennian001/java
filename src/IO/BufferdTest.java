@@ -12,6 +12,10 @@ import java.io.*;
  *  BufferdReader
  *  BufferdWriter
  * 2、作用 ：提供流的读取、写入的速度
+ *   原因：内部含有缓冲区 大小8192
+ *   public BufferedOutputStream(OutputStream out) {
+       this(out, 8192);
+ }
  */
 public class BufferdTest {
     /**
@@ -39,6 +43,7 @@ public class BufferdTest {
             byte[] bytes = new byte[1024];
             while ((len = bis.read(bytes))!=-1){
                 bos.write(bytes,0,len);
+//                bos.flush();刷新缓冲区,不等到8192就写入
             }
         } catch (IOException e) {
             e.printStackTrace();
