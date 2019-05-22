@@ -20,7 +20,7 @@ import java.nio.file.StandardOpenOption;
  *   三、获取通道
  *     1.java 针对支持通道的类提供了 getChannel()方法
  *     本地IO：
- *      FileInputStream 、 FileOutputStream
+ *      FileInputStreamTest 、 FileOutputStream
  *     网络IO:
  *      Socket
  *      ServerSocket
