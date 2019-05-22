@@ -9,6 +9,7 @@ import java.io.*;
  *结论：
  *  1、对于文本文件（.txt\.java\.c\.cpp）使用字符流处理
  *  2、对于非文本文件（.jpg\.mp3\.mp4\.avi\.doc\.ppt......），使用字节流处理
+ *  3、文件复制可以使用FileInputStreamTest\FileOutputStream的使用，因为不在内存中操作
  */
 public class FileInputStreamTest {
     //使用FileinputStream来处理文本文件可能出现乱码
@@ -42,6 +43,7 @@ public class FileInputStreamTest {
     }
     /**
      * 实现图片的复制
+     * 文本文件也可以复制，复制不在内存中展示
      */
     @Test
     public void copyPicture() {
