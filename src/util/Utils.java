@@ -2,11 +2,9 @@ package util;
 
 import org.junit.Test;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * 工具类
@@ -21,11 +19,10 @@ public class Utils {
         int start_year = Integer.parseInt(startTime.substring(0, 4));
         int start_month = Integer.parseInt(startTime.substring(5, 7));
         int start_day = Integer.parseInt(startTime.substring(8, 10));
-        //获取年月日int类型
+        //获取年月日 int类型
         int end_year = Integer.parseInt(endTime.substring(0, 4));
         int end_month = Integer.parseInt(endTime.substring(5, 7));
         int end_day = Integer.parseInt(endTime.substring(8, 10));
-
         LocalDate startLocal = LocalDate.of(start_year,start_month,start_day);
         LocalDate  endLocal= LocalDate.of(end_year,end_month,end_day);
         Period between = Period.between(startLocal, endLocal);
