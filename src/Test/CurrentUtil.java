@@ -10,7 +10,7 @@ import java.util.concurrent.Semaphore;
 /**
  * 并发测试工具
  */
-public class CurrentTest {
+public class CurrentUtil {
 
     public static final int requestTotal = 1000;
 
