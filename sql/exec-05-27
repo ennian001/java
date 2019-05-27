@@ -1,0 +1,9 @@
+#1.1
+select T1.a as Colnum1 , T1.c AS Column2 , T2.c AS Column3
+where T1.a = T2.a
+And T1.a = 'A11';
+-- 同一个字段分组求和
+select a As Colnum1 , sum(b) AS Colnum2 , sum(c) AS Colnum3
+from T3
+group By a
+where a = 'A11'
