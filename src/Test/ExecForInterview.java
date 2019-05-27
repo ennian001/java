@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *  笔试 题联系
@@ -62,6 +64,31 @@ public class ExecForInterview {
         System.out.println("空格的数目为：　" + kongge);
     }
 
+    /**
+     *  打乱顺序，寻找数
+     */
+    public int findNotInput(int n , int[] nums){
+        Map<Integer,String> map = new HashMap<>();
+        for (int i = 1 ; i<=n;i++ ){
+            map.put(i,"1");
+        }
+        for (int j : nums){
+            if (!map.containsKey(j))
+                return j;
+        }
+        return 0;
+    }
+    /**
+     *  String 类型字符串倒叙排列
+     */
+    public String reverse(String str){
+        char[] chars = str.toCharArray();
+        StringBuffer sb = new StringBuffer();
+        for (int i = chars.length-1;i>=0;i--){
+            sb.append(chars[i]);
+        }
+        return sb.toString();
+    }
     @Test
     public void printTest3(){
        test3("I am a student whose age is 20");
