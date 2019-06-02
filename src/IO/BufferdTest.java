@@ -16,6 +16,8 @@ import java.io.*;
  *   public BufferedOutputStream(OutputStream out) {
        this(out, 8192);
  }
+  3、处理流，就是"套接"在已有的流的基础上
+
  */
 public class BufferdTest {
     /**
@@ -59,6 +61,44 @@ public class BufferdTest {
             if (bis!=null) {
                 try {
                     bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    /**
+     * 使用 BufferdReader 和 BufferdWriter 实现文本文件的复制
+     */
+    @Test
+    public void testBufferdReaderBufferdWriter(){
+        //创建文件和相应的流
+        BufferedReader br = null;
+        BufferedWriter bw = null;
+        try {
+            br = new BufferedReader(new FileReader(new File("dbcp.txt")));
+            bw = new BufferedWriter(new FileWriter(new File("dbcp.txt")));
+            //读写操作
+            //方法一：
+            char[] cbuf = new char[1024];
+            int len ;
+            while ((len = br.read(cbuf))!= -1){
+                bw.write(cbuf,0,len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            //关闭资源
+            if (bw != null) {
+                try {
+                    bw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (br != null) {
+                try {
+                    br.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
