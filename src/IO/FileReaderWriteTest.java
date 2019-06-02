@@ -11,10 +11,10 @@ import java.io.*;
  *  3、流的角色：节点流、处理流
  *  二、流的体系结构
  *  抽象基类                          节点流（或文件流）          缓冲流（处理流的一种）
- *  InputStream                      FileInputStreamTest          BufferedInputStream
- *  OutputStream                     FileOutputStream         BuffredOutputStream
- *  Reader                           FileReader               BuffredReader
- *  Writer                           FileWriter               BuffredWriter
+ *  InputStream                      FileInputStream（read(byte[] buffer)）          BufferedInputStream(read(byte[] buffer))
+ *  OutputStream                     FileOutputStream(write(byte[] buffer,0,len))         BuffredOutputStream(write(byte[] buffer,0,len))
+ *  Reader                           FileReader(read(char[] cbuf))               BuffredReader(read(char[] cbuf / readLine()))
+ *  Writer                           FileWriter(write(char[] cbuf , 0 , len))               BuffredWriter(write(char[] cbuf , 0 , len))
  */
 public class FileReaderWriteTest {
     final String Absolute_Path = "E:\\学习\\javaEE\\hello.txt";
