@@ -80,10 +80,20 @@ public class BufferdTest {
             bw = new BufferedWriter(new FileWriter(new File("dbcp.txt")));
             //读写操作
             //方法一：
-            char[] cbuf = new char[1024];
-            int len ;
-            while ((len = br.read(cbuf))!= -1){
-                bw.write(cbuf,0,len);
+//            char[] cbuf = new char[1024];
+//            int len ;
+//            while ((len = br.read(cbuf))!= -1){
+//                bw.write(cbuf,0,len);
+//            }
+            //方式2、
+            //使用String
+            String data;
+            while ((data = br.readLine())!=null){
+                //方法1：
+                bw.write(data+"\n");//data不包含换行符
+                //方法2
+                bw.write(data);
+                bw.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
