@@ -93,6 +93,14 @@ public class ExecForInterview {
     public void printTest3(){
        test3("I am a student whose age is 20");
     }
+
+    @Test
+    public void test1(){
+        String ts = "2018-09";
+        String substring = ts.substring(0, 4);
+        System.out.println(substring);
+    }
+
     @Test
     public void printTest(){
         int i = 67;
@@ -100,4 +108,24 @@ public class ExecForInterview {
         char c = 'C' ;
         System.out.println((int) c);
     }
+
+    //按位操作符
+    public static void main(String[] args) {
+        System.out.println(1&1);
+        System.out.println(1&0);
+        System.out.println(1^1);//异或
+        System.out.println(1^0);
+        //左移
+        System.out.println(1<<1);
+        System.out.println(1<<2);
+        System.out.println(1<<3);
+        System.out.println(1<<4);
+        System.out.println(1<<5);
+        System.out.println(1<<6);
+        System.out.println(1<<7);
+        System.out.println(1<<8);
+        System.out.println(1<<9);
+    }
+
+
 }

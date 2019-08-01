@@ -76,7 +76,7 @@ public class BufferdTest {
         BufferedReader br = null;
         BufferedWriter bw = null;
         try {
-            br = new BufferedReader(new FileReader(new File("dbcp.txt")));
+            br = new BufferedReader(new FileReader(new File("1.txt")));
             bw = new BufferedWriter(new FileWriter(new File("dbcp.txt")));
             //读写操作
             //方法一：
@@ -87,13 +87,14 @@ public class BufferdTest {
 //            }
             //方式2、
             //使用String
-            String data;
+            String data; //每次读取一行
             while ((data = br.readLine())!=null){
+                System.out.println(data);
                 //方法1：
                 bw.write(data+"\n");//data不包含换行符
                 //方法2
-                bw.write(data);
-                bw.newLine();
+//                bw.write(data);
+//                bw.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
