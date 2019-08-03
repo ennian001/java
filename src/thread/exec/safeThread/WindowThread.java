@@ -6,14 +6,23 @@ package thread.exec.safeThread;
 public class WindowThread extends Thread {
     // 静态变量中  三个线程共享的
     private static int ticket = 100;
+    //注意此处为静态对象
+    static  Object object = new Object();
     @Override
     public void run() {
         while (true){
-            if (ticket>0){
-                System.out.println(getName()+"：卖票，票号为："+ticket);
-                ticket --;
-            }else{
-                break;
+            //正确
+//            synchronized (object){
+            //Window2.class只会加载一次
+            synchronized (WindowThread.class) {
+                //错误的方式：this代表着t1,t2,t3三个对象
+//              synchronized (this){
+                if (ticket > 0) {
+                    System.out.println(getName() + "：卖票，票号为：" + ticket);
+                    ticket--;
+                } else {
+                    break;
+                }
             }
         }
     }
