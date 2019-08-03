@@ -29,7 +29,7 @@ public class WindowMethodThread extends Thread {
 }
 
 
-public class WindowTest4 {
+class WindowTest4 {
     public static void main(String[] args) {
         WindowMethodThread t1 = new WindowMethodThread();
         WindowMethodThread t2 = new WindowMethodThread();
