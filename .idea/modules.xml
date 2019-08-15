@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/javaEE.iml" filepath="$PROJECT_DIR$/javaEE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../transaction/jdbctransaction/jdbctransaction.iml" filepath="$PROJECT_DIR$/../transaction/jdbctransaction/jdbctransaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../transaction/transaction.iml" filepath="$PROJECT_DIR$/../transaction/transaction.iml" />
     </modules>
   </component>
 </project>
