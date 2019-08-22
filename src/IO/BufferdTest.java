@@ -88,10 +88,23 @@ public class BufferdTest {
             //方式2、
             //使用String
             String data; //每次读取一行
+            String newData = new String();
             while ((data = br.readLine())!=null){
                 System.out.println(data);
+                if (data.contains("\\")){
+                    char[] chars = data.toCharArray();
+                    for (int i = 0; i < chars.length; i++) {
+                        if (chars[i]=='\\'){
+                            chars[i]='z';
+                        }
+                        newData+=chars[i];
+                    }
+
+                    System.out.println(1111);
+                }
+
                 //方法1：
-                bw.write(data+"\n");//data不包含换行符
+                bw.write(newData+"\n");//data不包含换行符
                 //方法2
 //                bw.write(data);
 //                bw.newLine();
