@@ -1,6 +1,8 @@
 package interview.VolatileDemo;
 
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 class MyData{
 //    int number = 0 ;
@@ -9,8 +11,13 @@ class MyData{
         this.number = 60;
     }
     //请注意，此时number前面是加了volatile关键字修饰的
-    public  void addPlusPlus(){
+    public /*synchronized*/ void addPlusPlus(){
         number++;
+    }
+//    解决volatile原子性
+    AtomicInteger atomicInteger = new AtomicInteger();
+    public void addAtomic(){
+        atomicInteger.getAndIncrement();
     }
 }
 /**
@@ -21,6 +28,11 @@ class MyData{
  *         不可分割，完整性，也即某个线程正在做某个具体业务时，中间不可以被加塞或者被分割。需要整体完整
  *         要么同时成功，失败
  *
+ *   2.2 如何解决原子性
+ *       加synchorinzed
+ *       2、使用JUC  AutomicInteger
+ *
+ *
  */
 public class VolatileDemo {
     public static void main(String[] args) {
@@ -29,6 +41,8 @@ public class VolatileDemo {
             new Thread(()->{
                 for (int j = 0; j < 1000; j++) {
                      myData.addPlusPlus();
+                     //解决原子性
+                    myData.addAtomic();
                 }
             },String.valueOf(i)).start();
         }
@@ -38,6 +52,7 @@ public class VolatileDemo {
             Thread.yield();
         }
         System.out.println(myData.number);
+        System.out.println(myData.atomicInteger);
     }
     //volatile可以保证可见性，及时通知其他线程，主物理内存的值已经被修改
     private static void seeOk() {
