@@ -1,9 +1,7 @@
 package JUC;
 
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 class MyThreadCallInstinst implements Callable<Integer>{
 
@@ -19,6 +17,8 @@ class MyThreadCallInstinst implements Callable<Integer>{
         return 200;
     }
 }
+
+
 
 public class CallableDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
