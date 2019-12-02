@@ -54,15 +54,9 @@ public class RandomAccessFileTest {
     //实现文件的替换
     @Test
     public void test4() throws IOException {
-        RandomAccessFile raf1 = new RandomAccessFile("hello.txt","rw");
-        String data;
-        while ((data =raf1.readLine())!=null){
-            if (data.contains("\\")){
-                System.out.println(1);
-                data.replace("\\","dsa");
-            }
-            raf1.write(data.getBytes());
-        }
+        RandomAccessFile raf1 = new RandomAccessFile("1.txt","rw");
+        raf1.seek(6);
+        raf1.write("zz".getBytes());
         raf1.close();
     }
     //实现文件的替换
