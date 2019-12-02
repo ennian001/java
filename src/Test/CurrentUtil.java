@@ -1,6 +1,7 @@
 package Test;
 
 import com.sun.deploy.pings.Pings;
+import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -48,5 +49,14 @@ public class CurrentUtil {
     private static String testRequestUri() {
         byte[] bytes = Pings.JAVAFX_CACHE_JNLP_URL.getBytes();
         return bytes.toString();
+    }
+    @Test
+    public void test2() {
+        int a=2;
+        int b=3;
+        a=a^b;
+        b=a^b;
+        a=a^b;
+        System.out.println("a="+a+",b="+b);
     }
 }

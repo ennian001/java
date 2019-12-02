@@ -35,9 +35,10 @@ class MyThread extends Thread
             if (i%2 ==0){
                 System.out.println(Thread.currentThread().getName()+":"+i);
             }
-            if (i ==20){
-                yield();
-            }
+
+//            if (i ==20){
+//                yield();
+//            }
         }
     }
 }
@@ -50,15 +51,16 @@ public class ThreadMethodTest {
 
         h1.setName("线程1");
         h1.start();
+
         Thread.currentThread().setName("main线程");
         for (int i = 0; i <100 ; i++) {
             if (i % 2 ==0){
-//                try {
-//                    if (i == 20)
-//                        h1.join();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    if (i == 20)
+                        h1.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 System.out.println(Thread.currentThread().getName()+":"+i);
                 System.out.println(h1.isAlive());
             }

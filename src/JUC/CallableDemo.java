@@ -1,12 +1,7 @@
 package JUC;
 
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
-/**
- 在主线程中需要执行比较耗时的操作时，但又不想阻塞主线程时，可以把这些作业交给Future对象在后台完成，当主线程将来需要时，
- 就可以通过Future对象获得后台作业的计算结果或者执行状态。
+import java.util.concurrent.*;
 
  一般FutureTask多用于耗时的计算，主线程可以在完成自己的任务后，再去获取结果。
 
@@ -27,6 +22,8 @@ class MyThreadCallInstinst implements Callable<Integer>{
         return 200;
     }
 }
+
+
 
 public class CallableDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
