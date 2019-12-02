@@ -2,7 +2,7 @@ package JUC;
 
 
 import java.util.concurrent.*;
-
+/**
  一般FutureTask多用于耗时的计算，主线程可以在完成自己的任务后，再去获取结果。
 
  仅在计算完成时才能检索结果；如果计算尚未完成，则阻塞 get 方法。一旦计算完成，就不能再重新开始或取消计算。
