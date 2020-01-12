@@ -77,7 +77,7 @@ public class BufferdTest {
         BufferedWriter bw = null;
         try {
             br = new BufferedReader(new FileReader(new File("1.txt")));
-            bw = new BufferedWriter(new FileWriter(new File("dbcp.txt")));
+            bw = new BufferedWriter(new FileWriter(new File("11.txt")));
             //读写操作
             //方法一：
 //            char[] cbuf = new char[1024];
@@ -90,19 +90,13 @@ public class BufferdTest {
             String data; //每次读取一行
             String newData = new String();
             while ((data = br.readLine())!=null){
-                System.out.println(data);
-                if (data.contains("\\")){
                     char[] chars = data.toCharArray();
                     for (int i = 0; i < chars.length; i++) {
                         if (chars[i]=='\\'){
-                            chars[i]='z';
+                            chars[i]=' ';
                         }
                         newData+=chars[i];
                     }
-
-                    System.out.println(1111);
-                }
-
                 //方法1：
                 bw.write(newData+"\n");//data不包含换行符
                 //方法2
