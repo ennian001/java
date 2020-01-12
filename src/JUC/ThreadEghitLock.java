@@ -17,7 +17,6 @@ import java.util.concurrent.TimeUnit;
  所有的静态同步方法用的也是同一把锁——类对象本身
  */
 class Flower  {
-
     public static synchronized void getMudanFlower() throws InterruptedException {
         TimeUnit.SECONDS.sleep(4);
         System.out.println("国花是牡丹");
